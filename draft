@@ -17,6 +17,8 @@ services:
     ports:
       - "8080:80"
 
+##START POSTGRES IN DOCKER
+
 docker run -it \
 -e POSTGRES_USER=root \
 -e POSTGRES_PASSWORD=root \
@@ -27,8 +29,10 @@ docker run -it \
 --name pg-database \
 postgres:13
 
+##CONNECT TO POSTGRES USING CLI
 pgcli -h localhost -d ny_taxi -u root
 
+##START PGADMIN IN DOCKER
 docker run -p 8080:80 \
     -e 'PGADMIN_DEFAULT_EMAIL=admin@admin.com' \
     -e 'PGADMIN_DEFAULT_PASSWORD=toto' \
@@ -36,6 +40,7 @@ docker run -p 8080:80 \
     -d dpage/pgadmin4
 
 
+##BUILD AND RUN PYTHON INGESTION SCRIPT IN DOCKER
 docker build -t taxi_ingest:1.0 .
 
 docker run -it --network pg-network \
