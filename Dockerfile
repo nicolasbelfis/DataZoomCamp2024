@@ -1,8 +1,10 @@
 FROM python:3.9
 
-RUN pip install pandas
+# wget used in script
+RUN apt-get install wget
+RUN pip install pandas sqlalchemy psycopg2
 
 workdir /app
-copy pipeline.py pipeline.py
+copy Untitled.py Untitled.py
 
-ENTRYPOINT ["python", "pipeline.py", "2012-12-12"]
+ENTRYPOINT ["python", "Untitled.py"]
