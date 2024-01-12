@@ -43,11 +43,11 @@ docker run -p 8080:80 \
 ##BUILD AND RUN PYTHON INGESTION SCRIPT IN DOCKER
 docker build -t taxi_ingest:1.0 .
 
-docker run -it --network pg-network \
+docker run -it --network datazoomcamp2024_default \
 taxi_ingest:1.0 \
 --user=root \
 --pass=root \
---host=pg-database \
+--host=pgdatabase \
 --port=5432 \
 --db=ny_taxi \
 --table=yellow_taxi_data \
