@@ -4,5 +4,10 @@ Repository for personal work and exercises related to data Zoomcamp 2024 cohort 
 
 # week1 
 ## docker-sql
-Check draft file for commands to run
+    course link https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/01-docker-terraform
 
+
+    Check draft file for some helpful commands to run
+
+## terraform
+cd into terraform to run commands

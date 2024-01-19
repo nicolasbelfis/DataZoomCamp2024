@@ -9,4 +9,8 @@ Host dataZoomCamp2024vm
 
  connect and install conda
 
+give permissions to run docker
+
+sudo groupadd docker
+sudo gpasswd -a $USER docker
 	

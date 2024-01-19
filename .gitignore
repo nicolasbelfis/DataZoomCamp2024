@@ -1,0 +1,4 @@
+./ny_taxi_postgres_data
+terraform/terraform.tfstate
+terraform/.terraform
+terraform/.terraform.lock.hcl
