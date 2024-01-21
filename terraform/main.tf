@@ -9,15 +9,16 @@ terraform {
 
 provider "google" {
   # Configuration options
-  project                     = "sanguine-fusion-410917"
-  region                      = "europe-southwest1-a"
-  impersonate_service_account = "terraform-runner@sanguine-fusion-410917.iam.gserviceaccount.com"
+  project = "sanguine-fusion-410917"
+  region  = "europe-southwest1-a"
+  # impersonate_service_account = "terraform-runner@sanguine-fusion-410917.iam.gserviceaccount.com"
 }
 
 resource "google_storage_bucket" "auto-expire" {
-  name          = "auto-expiring-bucket-sanguine-fusion-410917"
-  location      = "EU"
+  name          = var.gcs_storage_name
+  location      = var.location
   force_destroy = true
+  storage_class = var.gcs_storage_class
 
   lifecycle_rule {
     condition {
