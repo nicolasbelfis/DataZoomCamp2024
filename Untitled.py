@@ -17,26 +17,24 @@ def main(params):
     csv_url = params.url
 
     engine = create_engine(f"postgresql://{user}:{password}@{host}:{port}/{db}")
-    csv = "data.csv.gz"
+    csv = "data.csv"
     print(f"start downloading {csv_url}")
     os.system(f"wget {csv_url} -O {csv}")
     print(f"end downloading {csv}")
     df_iter = pd.read_csv(csv,iterator=True, chunksize=10000)
     pf = next(df_iter)
 
-    pf.tpep_pickup_datetime = pd.to_datetime(pf.tpep_pickup_datetime)
-    pf.tpep_dropoff_datetime = pd.to_datetime(pf.tpep_dropoff_datetime)
-
+    # pf.lpep_pickup_datetime = pd.to_datetime(pf.lpep_pickup_datetime)
+    # pf.lpep_dropoff_datetime = pd.to_datetime(pf.lpep_dropoff_datetime)
 
     pf.head(0).to_sql(name=table,con=engine,if_exists='replace')
     pf.to_sql(name=table,con=engine,if_exists='append')
 
-    while len(pf) > 0:
+    while (n := next(df_iter)) is not None:
         t_start = time.time()
-        pf = next(df_iter)
-        pf.to_sql(name=table,con=engine,if_exists='append')
+        n.to_sql(name=table,con=engine,if_exists='append')
         t_end = time.time()
-        print(f"inserted another chunk, tool {t_end - t_start} sec")
+        print(f"inserted another chunk, took {t_end - t_start} sec")
 
 
 if __name__ == '__main__':

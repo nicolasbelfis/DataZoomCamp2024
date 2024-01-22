@@ -10,4 +10,8 @@ Repository for personal work and exercises related to data Zoomcamp 2024 cohort 
     Check draft file for some helpful commands to run
 
 ## terraform
-cd into terraform to run commands
+cd into /terraform to run commands
+-   terraform init
+-   terraform plan
+-   terraform apply
+-   terraform destroy
