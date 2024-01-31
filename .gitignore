@@ -1,5 +1,4 @@
 ./ny_taxi_postgres_data
-terraform/terraform.tfstate
-terraform/.terraform
-terraform/.terraform.lock.hcl
 week2-orchestration-mage/mage-zoomcamp
+*.tfstate*
+.terraform*
