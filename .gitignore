@@ -4,7 +4,7 @@ week2-orchestration-mage/mage-zoomcamp
 .terraform*
 *.ipynb_checkpoints*
 *duckdb*
-./week5-batch-spark/spark/data/pq/fhv
-./week5-batch-spark/spark/jdk-11.0.2
-./week5-batch-spark/spark/spark-3.3.2-bin-hadoop3
+week5-batch-spark/spark/data/pq/fhv
+week5-batch-spark/spark/jdk-11.0.2
+week5-batch-spark/spark/spark-3.3.2-bin-hadoop3
 *.csv*
